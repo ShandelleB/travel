@@ -1,0 +1,34 @@
+<h1>Welcome to my Travel Site</h1>
+<p>This is my very awesome travel site.</p>
+
+<%= @homeland %>
+
+<ul>
+<% @countries.each do |country| %>
+    <li> <%= country  %> </li>
+<% end %>
+</ul>
+
+<% @photos.each do |photo| %>
+<br>
+    <%= image_tag photo, class: "img-responsive", class: "center-block" , width: 500 %>
+<% end %>
+
+<table class="table">
+  <tr>
+    <% @united_states.each do |key,value| %>
+	  <th><%= key.titleize %></th>
+    <% end %>
+  </tr>
+  <tr>
+    <% @united_states.each do |key,value| %>      
+      <% if value.is_a?(Array) %>
+          <td><%= value.join(", ") %></td>
+      <% else %>
+         <td><%= value %></td>
+      <% end %> 
+    <% end %>
+  </tr>
+</table>
+
+<div id="map-canvas"></div>
